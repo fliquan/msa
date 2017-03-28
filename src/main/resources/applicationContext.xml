@@ -6,7 +6,26 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-
+    
+    <context:property-placeholder location="classpath:database.properties"/>
     <context:component-scan base-package="com.google.redskyf"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${db.jdbc.driver}"></property>
+        <property name="url" value="${db.jdbc.url}"></property>
+        <property name="username" value="${db.jdbc.username}"></property>
+        <property name="password" value="${db.jdbc.passwrord}"></property>
+        <property name="maxActive" value="${db.conn.pool.maxActive}"></property>
+        <property name="maxIdle" value="${db.conn.pool.maxIdle}"></property>
+        <property name="maxWait" value="${db.conn.pool.maxWait}"></property>
+        <property name="defaultAutoCommit" value="${db.conn.pool.defaultAutoCommit}"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:MyBatis-Configuration.xml"></property>
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+
 
 </beans>
