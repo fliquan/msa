@@ -37,7 +37,7 @@ public class Main {
         LOGGER.info("System Starting...........");
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         SampleService ss = (SampleService)context.getBean("sampleService");
-        System.out.println(ss.getServiceName());
+        System.out.println(ss.query().size());
         LOGGER.info("System over...........");
     }
 

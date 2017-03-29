@@ -10,7 +10,15 @@
  */
 package com.google.redskyf.msa.service;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
+import com.google.redskyf.framework.service.BaseService;
+import com.google.redskyf.msa.mapper.SampleMapper;
+import com.google.redskyf.msa.vo.SampleVO;
 
 /** 
  * @ClassName: SampleService 
@@ -20,8 +28,14 @@ import org.springframework.stereotype.Service;
  *  
  */
 @Service
-public class SampleService {
+public class SampleService extends BaseService {
     
+    @Resource
+    private SampleMapper sampleMapper;
+    
+    public List<SampleVO> query(){
+        return sampleMapper.query();
+    }
     
     public String getServiceName(){
         return "SampleService";
