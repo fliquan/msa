@@ -18,10 +18,10 @@
         <property name="url" value="${db.jdbc.url}"></property>
         <property name="username" value="${db.jdbc.username}"></property>
         <property name="password" value="${db.jdbc.passwrord}"></property>
-        <property name="maxActive" value="${db.conn.pool.maxActive}"></property>
-        <property name="maxIdle" value="${db.conn.pool.maxIdle}"></property>
-        <property name="maxWait" value="${db.conn.pool.maxWait}"></property>
-        <property name="defaultAutoCommit" value="${db.conn.pool.defaultAutoCommit}"></property>
+<!--         <property name="maxActive" value="${db.conn.pool.maxActive}"></property> -->
+<!--         <property name="maxIdle" value="${db.conn.pool.maxIdle}"></property> -->
+<!--         <property name="maxWait" value="${db.conn.pool.maxWait}"></property> -->
+<!--         <property name="defaultAutoCommit" value="${db.conn.pool.defaultAutoCommit}"></property> -->
     </bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
